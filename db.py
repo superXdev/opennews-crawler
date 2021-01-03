@@ -17,11 +17,11 @@ class db():
 	def insert(self, title, link, image, tag, source):
 		try:
 		    # Connect to an existing database
-		    connection = psycopg2.connect(user="postgres",
-		    	password="fikri123",
-		    	host="localhost",
+		    connection = psycopg2.connect(user="twvlmegipblbco",
+		    	password="8c06e1925fa8faa3b933ea1f9022608a282319a55ac529c5fe768954de095099",
+		    	host="ec2-34-196-34-158.compute-1.amazonaws.com",
 		    	port="5432",
-		    	database="news")
+		    	database="dd3p8ncuc9hgj3")
 
 		    cursor = connection.cursor()
 		    # Check
