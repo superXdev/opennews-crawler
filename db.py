@@ -2,6 +2,7 @@ import psycopg2
 import datetime
 from datetime import datetime
 import pytz
+import os
 
 class db():
 	
@@ -17,11 +18,11 @@ class db():
 	def insert(self, title, link, image, tag, source):
 		try:
 		    # Connect to an existing database
-		    connection = psycopg2.connect(user="twvlmegipblbco",
-		    	password="8c06e1925fa8faa3b933ea1f9022608a282319a55ac529c5fe768954de095099",
-		    	host="ec2-34-196-34-158.compute-1.amazonaws.com",
+		    connection = psycopg2.connect(user=os.environ.get('DB_USER'),
+		    	password=os.environ.get('DB_PASSWORD'),
+		    	host=os.environ.get('DB_HOST'),
 		    	port="5432",
-		    	database="dd3p8ncuc9hgj3")
+		    	database=os.environ.get('DB_NAME'))
 
 		    cursor = connection.cursor()
 		    # Check
