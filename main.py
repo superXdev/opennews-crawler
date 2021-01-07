@@ -29,7 +29,7 @@ def start():
 	print(db.get_inserted(), 'news inserted.')
 	db.set_inserted(0)
 
-schedule.every(5).minutes.do(start)
+schedule.every(0).minutes.do(start)
 
 while True:
 	schedule.run_pending()
