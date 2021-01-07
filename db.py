@@ -29,7 +29,7 @@ class db():
 					database=os.environ.['DB_NAME'])
 			else:
 				connection = mysql.connector.connect(
-					host=os.environ['DB_HOST',
+					host=os.environ['DB_HOST'],
 					user=os.environ['DB_USER'],
 					passwd=os.environ['DB_PASSWORD'],
 					database=os.environ['DB_NAME']
