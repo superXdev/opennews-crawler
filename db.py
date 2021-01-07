@@ -26,7 +26,7 @@ class db():
 					password=os.environ['DB_PASSWORD'],
 					host=os.environ['DB_HOST'],
 					port="5432",
-					database=os.environ.['DB_NAME'])
+					database=os.environ['DB_NAME'])
 			else:
 				connection = mysql.connector.connect(
 					host=os.environ['DB_HOST'],
