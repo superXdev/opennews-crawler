@@ -20,19 +20,19 @@ class db():
 		try:
 		    # Connect to an existing database
 
-			if os.environ.get('DB_DRIVER') == 'pgsql':
+			if os.environ['DB_DRIVER'] == 'pgsql':
 				connection = psycopg2.connect(
-					user=os.environ.get('DB_USER'),
-					password=os.environ.get('DB_PASSWORD'),
-					host=os.environ.get('DB_HOST'),
+					user=os.environ['DB_USER'],
+					password=os.environ.['DB_PASSWORD'],
+					host=os.environ['DB_HOST'],
 					port="5432",
-					database=os.environ.get('DB_NAME'))
+					database=os.environ.['DB_NAME'])
 			else:
 				connection = mysql.connector.connect(
-					host=os.environ.get('DB_HOST'),
-					user=os.environ.get('DB_USER'),
-					passwd=os.environ.get('DB_PASSWORD'),
-					database=os.environ.get('DB_NAME')
+					host=os.environ['DB_HOST',
+					user=os.environ['DB_USER'],
+					passwd=os.environ['DB_PASSWORD'],
+					database=os.environ['DB_NAME']
 				)
 
 			cursor = connection.cursor()
