@@ -19,7 +19,7 @@ class db():
 	def insert(self, title, link, image, tag, source):
 		try:
 		    # Connect to an existing database
-		    connection = 0
+			connection = 0
 			if os.environ['DB_DRIVER'] == 'pgsql':
 				connection = psycopg2.connect(
 					user=os.environ['DB_USER'],
