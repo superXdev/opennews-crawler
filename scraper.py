@@ -76,7 +76,28 @@ def bbc():
 			image = news.select('.qa-post-body .qa-story-image-wrapper img')[0].get('src')
 			tag = 'world'
 
-			results.append((title, link, tag, image, 'bbc'))
+			results.append((title, 'https://www.bbc.com'+link, tag, image, 'bbc'))
+		except:
+			pass
+
+	return results
+
+
+def globalnews():
+	page = requests.get('https://globalnews.ca/world/')
+	soup = BeautifulSoup(page.content, 'html.parser')
+
+	latest_news = soup.find('ul', id='archive-latestStories')
+
+	results = []
+	for news in latest_news:
+		try:
+			title = news.select('li a')[0].get('title')
+			link = news.select('li a')[0].get('href')
+			image = news.select('li a .c-posts__media img')[0].get('data-src')
+			tag = news.select('li a .c-posts__details .c-posts__about .c-posts__info--highlight')[0].get_text()
+
+			results.append((title, link, tag, image, 'globalnews'))
 		except:
 			pass
 
