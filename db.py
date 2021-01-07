@@ -23,7 +23,7 @@ class db():
 			if os.environ['DB_DRIVER'] == 'pgsql':
 				connection = psycopg2.connect(
 					user=os.environ['DB_USER'],
-					password=os.environ.['DB_PASSWORD'],
+					password=os.environ['DB_PASSWORD'],
 					host=os.environ['DB_HOST'],
 					port="5432",
 					database=os.environ.['DB_NAME'])
