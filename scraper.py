@@ -62,6 +62,27 @@ def liputan6():
 	return results
 
 
+def bbc():
+	page = requests.get('https://www.bbc.com/news/world')
+	soup = BeautifulSoup(page.content, 'html.parser')
+
+	latest_news = soup.select('.gs-t-news ol .lx-stream__post-container')
+
+	results = []
+	for news in latest_news:
+		try:
+			title = news.select('article .lx-stream-post__header-text')[0].get_text()
+			link = news.select('article .qa-heading-link')[0].get('href')
+			image = news.select('.qa-post-body .qa-story-image-wrapper img')[0].get('src')
+			tag = 'world'
+
+			results.append((title, link, tag, image, 'bbc'))
+		except:
+			pass
+
+	return results
+
+
 
 	
 

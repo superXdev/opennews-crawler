@@ -31,7 +31,7 @@ class db():
 				connection = mysql.connector.connect(
 					host=os.environ['DB_HOST'],
 					user=os.environ['DB_USER'],
-					passwd=os.environ['DB_PASSWORD'],
+					passwd='',
 					database=os.environ['DB_NAME']
 				)
 

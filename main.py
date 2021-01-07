@@ -13,6 +13,8 @@ def start():
 	from_cnn = scraper.cnn()
 	print('Get news from liputan6.com')
 	from_liputan6 = scraper.liputan6()
+	print('Get news from bbc.com')
+	from_bbc = scraper.bbc()
 
 	# insert data from kompas
 	for n in from_kompas:
@@ -24,6 +26,10 @@ def start():
 
 	# insert data from liputan6
 	for n in from_liputan6:
+		db.insert(title=n[0], link=n[1], image=n[3], tag=n[2], source=n[4])
+
+	# insert data from bbc
+	for n in from_bbc:
 		db.insert(title=n[0], link=n[1], image=n[3], tag=n[2], source=n[4])
 	
 	print(db.get_inserted(), 'news inserted.')
